@@ -1,7 +1,7 @@
 <!--
  * @Author: 鲁遥
  * @Date: 2021-03-30 17:22:31
- * @LastEditTime: 2021-03-30 17:34:23
+ * @LastEditTime: 2021-03-31 19:53:44
  * @LastEditors: your name
  * @Description: 
  * @FilePath: /waterMark/README.md
@@ -28,6 +28,7 @@ npm install watermark-dfs
 @param {*} cansFont 文字fonsSize  默认:20
 @param {*} cansfillBG 填充背景颜色  默认:rgba(200, 200, 200, 0.20
 @param {*} cansfillTextAlign 文字对齐方式  默认:left
+@param {*} uniqueId 唯一标识符号
      
 
 Watermark.set({
@@ -38,6 +39,7 @@ Watermark.set({
     cansFont: 20,
     cansfillBG: "rgba(0, 0, 0, 0.1)",
     cansfillTextAlign: "left",
+    uniqueId:'98765432.8765432.765432'
 });
 
 Watermark.set();

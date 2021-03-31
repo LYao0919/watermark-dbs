@@ -1,7 +1,7 @@
 /*
  * @Author: 鲁遥
  * @Date: 2021-03-30 16:29:40
- * @LastEditTime: 2021-03-30 17:20:26
+ * @LastEditTime: 2021-03-31 19:54:52
  * @LastEditors: your name
  * @Description:
  * @FilePath: /waterMark/index.js
@@ -9,8 +9,8 @@
 
 
 let watermark = {}
-let setWatermark = (displaytext, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign) => {
-    let id = parseInt(Math.random() * 100000000);
+let setWatermark = (displaytext, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign, uniqueId) => {
+    let id = uniqueId;
 
     if (document.getElementById(id) !== null) {
         document.body.removeChild(document.getElementById(id));
@@ -61,16 +61,16 @@ let setWatermark = (displaytext, cansWidth, cansHeight, cansRotate, cansFont, ca
  * @param {*} cansfillTextAlign 文字对齐方式
  */
 let hostname = location.hostname;
-watermark.set = ({ displayText = hostname, cansWidth = 300, cansHeight = 180, cansRotate = -15, cansFont = 20, cansfillBG = 'rgba(200, 200, 200, 0.20)', cansfillTextAlign = 'left' } = {}) => {
+watermark.set = ({ displayText = hostname, cansWidth = 300, cansHeight = 180, cansRotate = -15, cansFont = 20, cansfillBG = 'rgba(200, 200, 200, 0.20)', cansfillTextAlign = 'left', uniqueId = '98765432.8765432.765432' } = {}) => {
     // let { displayText = hostname, cansWidth = 300, cansHeight = 180, cansRotate = -15, cansFont = 20, cansfillBG = 'rgba(200, 200, 200, 0.20)', cansfillTextAlign = 'left' } = obj;
     let id = setWatermark(displayText, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign);
     setInterval(() => {
         if (document.getElementById(id) === null) {
-            id = setWatermark(displayText, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign);
+            id = setWatermark(displayText, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign, uniqueId);
         }
     }, 500);
     window.onresize = () => {
-        setWatermark(displayText, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign);
+        setWatermark(displayText, cansWidth, cansHeight, cansRotate, cansFont, cansfillBG, cansfillTextAlign, uniqueId);
     };
 }
 
